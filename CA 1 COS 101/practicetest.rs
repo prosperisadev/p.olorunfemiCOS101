@@ -1,0 +1,72 @@
+use std::io;
+
+fn main() {
+
+	for _ in 0..49 {
+
+	println!("Welcome to the Student Council Voter System
+		      Enter your details below to see if you qualify");
+
+	let mut input2 = String::new();
+	let mut input3 = String::new();
+	let mut input4 = String::new();
+
+//Step 1, get candidate information to confirm qualification
+	println!("Are you a Class Rep (True of False)");
+	io::stdin().read_line(&mut input2).expect("Not valid string");
+	let class_position:bool = input2.trim().parse().expect("Not a valid class position");
+
+
+	println!("Enter Level (i.e 100,200,300, or 400)");
+	io::stdin().read_line(&mut input3).expect("Not valid string");
+	let level:i32 = input3.trim().parse().expect("Not a valid class level");
+
+	println!("Enter CGPA (i.e 2.4 or 5.0)");
+	io::stdin().read_line(&mut input4).expect("Not valid string");
+	let cgpa:f32 = input4.trim().parse().expect("Not a valid CGPA");
+
+//Step 2, use candidate information to determine whether they are qualified and print response to them.
+	if class_position == true && level == 200 && cgpa >= 4.0
+{
+//Step 3, print results if qualified
+	println!("Welcome Candidate,
+		Name: John Doe
+		Email: johndoe@pau.edu.ng
+		Department: Computer Science
+		State of Origin: Ibadan, Main City, Oja Igbo
+
+		YOU CAN VOTE!",);
+}
+
+else if class_position == true && level == 300 && cgpa >= 4.0
+{
+//Step 4, print results if qualified
+	println!("Welcome Candidate,
+		Name: John Doe
+		Email: johndoe@pau.edu.ng
+		Department: Computer Science
+		State of Origin: Ibadan, Main City, Oja Igbo
+
+		YOU CAN VOTE!",);
+}
+
+else if class_position == true && level == 400 && cgpa >= 4.0
+{
+//Step 4, print results if qualified
+	println!("Welcome Candidate,
+		Name: John Doe
+		Email: johndoe@pau.edu.ng
+		Department: Computer Science
+		State of Origin: Ibadan, Main City, Oja Igbo
+
+		YOU CAN VOTE!",);
+}
+
+
+//Step 6, print results if unqualified
+else
+{
+	println!("Sorry you are not eligible to vote");
+}
+}
+}
