@@ -9,85 +9,44 @@ fn main() {
 
     //Receive Input on Type of food
     let mut input1 = String::new();
-    println!("Select your preferred meal (p,f,a,e,w, p&f or p&f&w...");
+    println!("Select your preferred meal (Pack,F,A,E,W");
     io::stdin().read_line(&mut input1).expect("Not valid string");
-    let binding = input1.to_string();
-    let selected_meal:&str = binding.trim();
+    let selected_meal = input1.trim().to_uppercase();
 
-    //Process to define what meal and provide output
-    if selected_meal == "p" {
-        println!("Your selected meal is Poundo Yam & Edinkaiko Soup and costs #3,200");
+    //Receive input on quantity
+    let mut input2 = String::new();
+    println!("How many portions would you like (1,2,3,4,5..");
+    io::stdin().read_line(&mut input2).expect("Not valid string");
+    let quantity:u32 = input2.trim().parse().expect("Not a valid number");
+
+    let mut price:u32 = ;
+    if selected_meal == "P" {
+     price = 3200 * quantity;
     }
 
-    else if selected_meal == "f" {
-        println!("Your selected meal is Fried rice & chicken and costs #3,000");
+    else if selected_meal == "F" {
+        let mut price:u32 = 3000 * quantity;
     }
 
-    else if selected_meal == "a" {
-        println!("Your selected meal is Amala & Ewedu Soup and costs #2,500");
+    else if selected_meal == "A" {
+        let mut price:u32 = 2500 * quantity;
     }
 
-    else if selected_meal == "e" {
-        println!("Your selected meal is Eba & Egusi Soup and costs #2,000");
+    else if selected_meal == "E" {
+        let mut price:u32 = 2000 * quantity;
     }
 
-    else if selected_meal == "w" {
-        println!("Your selected meal is White Rice & stew and costs #2,500");
+    else if selected_meal == "W" {
+       let price:u32 = 2500 * quantity;
     }
 
-    else if selected_meal == "p&f" {
-        println!("Your selected meal is Poundo Yam pack  & Fried Rice packand costs #6,200");
+
+    let discount:u32 = price:u32 * 0.05;
+    if price:u32 > 10000 {
+        println!("Your total order is {}, for ordering above 10,000, you've won a 5% discount and your discounted price is {}", price, discount);
     }
 
-    else if selected_meal == "p&a" {
-        println!("Your selected meal is Poundo Yam pack  & Amala Pack and costs #5,700");
-    }
-
-    else if selected_meal == "p&e" {
-        println!("Your selected meal is Poundo Yam pack  & Eba Pack and costs #5,200");
-    }
-
-    else if selected_meal == "p&w" {
-        println!("Your selected meal is Poundo Yam pack  & White Rice Pack and costs #5,700");
-    }
-
-    else if selected_meal == "f&a" {
-        println!("Your selected meal is Fried Rice pack  & Amala Pack and costs #5,500");
-    }
-
-    else if selected_meal == "f&e" {
-        println!("Your selected meal is Fried Rice pack  & Eba Pack and costs #5,200");
-    }
-
-    else if selected_meal == "f&w" {
-        println!("Your selected meal is Fried Rice pack  & White Rice Pack and costs #5,500");
-    }
-
-    else if selected_meal == "a&e" {
-        println!("Your selected meal is Amala pack  & Eba Pack and costs #4,500");
-    }
-
-    else if selected_meal == "a&w" {
-        println!("Your selected meal is Amala pack  & White Rice Pack and costs #5,000");
-    }
-
-    else if selected_meal == "p&f&a" {
-        println!("Your selected meal is Poundo Yam pack, Fried Rice Pack & Amala Pack and costs #8,700");
-    }
-
-     else if selected_meal == "p&f&e" {
-        println!("Your selected meal is Poundo Yam pack, Fried Rice Pack & Eba Pack and costs #8,200");
-    }
-
-     else if selected_meal == "p&f&w" {
-        println!("Your selected meal is Poundo Yam pack, Fried Rice Pack & White Rice Pack and costs #8,700");
-    }
-
-     else if selected_meal == "f&a&e" {
-        println!("Your selected meal is Fried Rice pack, Amala Pack & Eba Pack and costs #8,500");
-    }
-
-    else if selected_meal == "f&a&w" {
-        println!("Your selected meal is Fried Rice pack, Amala Pack & Eba Pack and costs #8,500");
+    else if price:u32 < 10000 {
+        println!("Your total order is {}, thanks for patronizing us", price); 
     }
 }
