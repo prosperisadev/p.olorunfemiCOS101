@@ -7,6 +7,7 @@ fn main() {
     let department: [&str; 5] = ["Accounting", "Economics", "Computer", "Electrical", "Mechanical"];
     let level: [i32; 5] = [300, 100, 200, 200, 100];
 
+
     let pau_sims = format!(
         "
          S/N,  Student Name,     Matric Number,    Department,      Level, \n
